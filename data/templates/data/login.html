@@ -1,0 +1,62 @@
+{% extends 'data/base.html' %}
+
+{% block content %}
+    <h1>Registrarse</h1>
+    <div class="row">
+        <form method="POST" class="col s12">
+            {% csrf_token %}
+        <div class="row">
+           <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <!--input placeholder="Nombre Completo" id="nombre" type="text" class="active validate" required-->
+               {{form.name}}
+              <label for="{{ form.name.name }}">Nombre</label>
+           </div>
+        </div>
+            <div class="row">
+               <div class="input-field col s12">
+                   <i class="material-icons prefix">email</i>
+                  <label for="id_email" data-error="No es valido">Email</label>
+                   {{form.email}}
+                  <!--input placeholder="Email" id="email" type="email" class="validate"-->
+               </div>
+            </div>
+             <div class="row">
+                 <div class="input-field col s12">
+                <i class="material-icons prefix active">today</i>
+                <label for="id_birth_date" class="active">Fecha de Nacimiento</label>
+                {{form.birth_date}}
+                <!--input id="birth_date" type="date" class="datepicker"-->
+                 </div>
+                 </div>
+             <div class="row">
+                 <div class="input-field col s6">
+                     <i class="material-icons prefix">lock_outline</i>
+                  <label for="id_password">Password</label>
+                  {{form.password}}
+                  <!--input id="password" type="password" placeholder="Password" class="validate" required-->
+               </div>
+                <div class="input-field col s6">
+                  <label for="conf_password">Confirmar Password</label>
+                  <input id="conf_password" type="password" placeholder="Password" class="validate" required>
+               </div>
+             </div>
+            <div class="row">
+                <div class="col s12">
+                   <label class="active">Genero</label>
+                   {{form.gender}}
+                   <select class="browser-default" required>
+                      <option value="" disabled selected>Selecciona tu genero</option>
+                      <option value="1">Femenino</option>
+                      <option value="2">Masculino</option>
+                   </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="submit" class="btn waves-effect waves-light right" name="action" value="Registrar">
+                </div>
+            </div>
+        </form>
+      </div>
+{% endblock %}

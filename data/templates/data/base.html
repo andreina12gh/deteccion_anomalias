@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <title>Deteccion de Anomalias en una Rutina</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="{%static 'materialize/css/materialize.min.css' %}" media="screen,projection"/>
+        <link rel="stylesheet" href="{%static 'googleapis/material_icons.css' %}">
+        <link rel="stylesheet" href="{%static 'css/style.css' %}" media="screen, projection">
+        <script type="text/javascript" src="{%static 'jquery/jquery-2.1.1.min.js' %}"></script>
+        <script type="text/javascript" src="{%static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src="{%static 'js/script.js' %}"></script>
+    </head>
+    <!--body class="container blue-grey lighten-5"-->
+    <body class="container">
+        <header class="blue-text text-darken-4">
+            <h1 class="center">Deteccion de Anomalias en una Rutina</h1>
+        </header>
+        <nav class="blue darken-4" role="navigation">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse" ><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    {% if urls %}
+                        {%for url, name_url in urls %}
+                            <li><a href="/data/{{ url }}/">{{ name_url }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    {% if urls %}
+                        {%for url, name_url in urls %}
+                            <li><a href="/data/{{ url }}/">{{ name_url }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col s12">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+        <footer>
+            <p><strong>Andreina Cota Vidaurre</strong></p>
+            <p>andre_k812@hotmail.com 2016 ®</p>
+        </footer>
+    </body>
+</html>
